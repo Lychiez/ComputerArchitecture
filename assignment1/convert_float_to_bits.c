@@ -1,8 +1,19 @@
+/*****************************************************************/
+/* File convert_float_to_bits.c:  asks for a floating point      */
+/* input number and prints the value out in decimal, hex and     */
+/* bits spaced for readability.  The program expects that input  */
+/* floats are stored in IEEE 754 format after scanning, and is   */
+/* currently built to run on little endian machines (i.e. Compaq,*/
+/* Intel, etc.).  To run this program on a big endian machine,   */
+/* the bit structures would require top-to-bottom inversions.    */
+/*****************************************************************/
+
 #include <stdio.h>
 
-int main(int argc, char * argv[]) {
 
-    // scan from input up to 10 floating point numbers
+int main(int argc, char * argv[])
+{
+
 union float_32{
         float   floating_value_in_32_bits;
         int     floating_value_as_int;
@@ -55,12 +66,8 @@ for(i=0; i<42; i++){
 }
 bit_string[42] = '\0';
 
-// Commment out when necessary XX
-printf("please enter a floating point number and new-line: ");
-
-
-printf("the floating value for INPUT_NUMBER is broken out as:\n");
-scanf("%g", &float_32.floating_value_in_32_bits);
+// printf("please enter a floating point number and new-line: ");
+// scanf("%g", &float_32.floating_value_in_32_bits);
 
 bit_string[0] = float_32.bit.b31?'1':'0';
 
@@ -111,16 +118,4 @@ printf("\n\nthe base 10 int   result is:%15d\n\n", float_32.floating_value_as_in
 printf("      components in hex are:     0x%08x\n\n", float_32.floating_value_as_int);
 
 printf("   components in binary are:     %s\n", bit_string);
-
-
-    // Output text
-    printf("mantissa: XXXXXX"); printf(" or: XXXXXXX"); printf("\n");
-    printf("exponent: XXXXXX"); printf(" or: XXXXXXX"); printf("\n");
-    printf("sign: XXXXXX"); printf(" or: XXXXXXX"); printf("\n");
-    printf("in base 10: XXXXXX"); printf(" or: XXXXXXX");
-
-
-
-
-return 0;
 }
