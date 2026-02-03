@@ -1,25 +1,27 @@
-CC = g++
-CFLAGS = --std=c++17 -Wall -Werror -pedantic -g
-LIB = -lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system -lboost_unit_test_framework
-# Your .hpp files
-DEPS =
-# Your compiled .o files
-OBJECTS =
-# The name of your program
-PROGRAM = sfml-app
+CC = gcc
+CFLAGS = -std=c99 -O2 -Werror -Wextra -Wall
 
-.PHONY: all clean lint
+# External Libraries
+LIB = 
+
+# .h files
+DEPS = functions.h
+
+# Compiled .o files
+OBJECTS = main.o functions.o
+
+# Program name
+PROGRAM = main
 
 all: $(PROGRAM)
 
-%.o: %.cpp $(DEPS)
-	$(CC) $(CFLAGS) -c $<
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(PROGRAM): main.o $(OBJECTS)
+$(PROGRAM): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIB)
 
 clean:
 	rm *.o $(PROGRAM)
 
 lint:
-	cpplint *.cpp *.hpp

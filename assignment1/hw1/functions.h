@@ -1,8 +1,11 @@
+// File to hold declaration of all functions
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 #include <stdlib.h>
 #include <stdio.h>
 
+// Helper functions provided courtesy of Professor Moloney
 union float_32 {
 	float   floating_value_in_32_bits;
 	int     floating_value_as_int;
@@ -46,14 +49,15 @@ struct single_bits {
 	unsigned  b30:1;
 	unsigned  b31:1;
 } bit;
-	};
+};
 
+// Declared extern union due to Makefiles global declaration confusion
 extern union float_32 float_32;
 
-void print_output(char bit_string[]);
+void print_output(char bit_string[]); 	// Prints out the main terminal boilerplate formatted correctly as per PDF
 
-void print_mant(char bit_string[]);
+void print_mant(char bit_string[]);		// Prints Mantissa portion
 
-void print_exp(char bit_string[]);
+void print_exp(char bit_string[]);		// Prints Exponent portion
 
 #endif

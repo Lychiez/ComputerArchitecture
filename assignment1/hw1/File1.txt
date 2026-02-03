@@ -1,0 +1,12 @@
+I think the degree of success with this project is 100%. 
+My approach to the project started by sanctioning out what I had available to me and then writing down 
+comments on what the structure of the code should be. 
+I knew I needed to have a Makefile for this project’s code which isn’t my strongest skillset, 
+so my first step was to properly configure my three files to properly 
+compile before I even started writing anything much more complicated out.
+I started with main.c and fleshed out what should be driving and what the outcome should be. 
+Then I declared functions in the header file functions.h to get a feel of what I need to accomplish the project based off my main.c. 
+From then on I fleshed out the functions in the functions.c implementation file using provided code, 
+with alterations and proper display formatting for the boilerplate PDF text sample provided. 
+
+My student email that can be used to reach me is Alex_Ly@student.uml.edu
