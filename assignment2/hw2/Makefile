@@ -23,5 +23,3 @@ $(PROGRAM): $(OBJECTS)
 
 clean:
 	rm *.o $(PROGRAM)
-
-lint:
