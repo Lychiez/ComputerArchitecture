@@ -6,7 +6,7 @@ int main()
     union float_32 float_1, float_2, hardware_32, emulated_32;
     int valid = 1;
 
-    printf("************************************************************************\n");
+    printf("\n************************************************************************\n");
     printf("This program will emulate the addition of two IEEE 754 floating point numbers\n\n");
 
     while(valid == 1) {
@@ -47,7 +47,7 @@ int main()
 
     hardware = float1 + float2;
     hardware_32.float_value = hardware;       
-    printf("HARDWARE FLOATING RESULT FROM PRINTF ==>>> %f\n", hardware_32.float_value);
+    printf("HARDWARE FLOATING RESULT FROM PRINTF ==>>> %f\n\n", hardware_32.float_value);
     printf("************************************************************************\n\n");
 
     // returns 0 on invalid input and -1 on EOF
