@@ -51,10 +51,9 @@ struct single_bits {
 }float_32;
 
 
-// Functions to output
+// Functions used
+float sum_floats(float_32 num1, float_32 num2);
 void print_binary(float_32 output);
-float add_floating_point(float_32 first_int, float_32 second_int);
-void print_output_emulated(float_32 output);
-void print_output_hardware(float_32 output);
+
 
 #endif

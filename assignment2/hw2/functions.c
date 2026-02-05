@@ -58,3 +58,62 @@ void print_binary(float_32 output)
 
     printf("%s\n", bit_string); // Print out the bit string.
 }
+
+
+
+float sum_floats(float_32 num1, float_32 num2) {
+  int count = 0;          // Shift count
+  float_32 float_sum;
+
+  // When the exponents are the same incrememnt them and add the mantissa's together
+  if (num1.f_bits.exponent == num2.f_bits.exponent) {
+
+    // Increment exponents to fix
+    num1.f_bits.exponent++;
+    num2.f_bits.exponent++;
+
+    // When they're the same we can just use the first exponent
+    float_sum.f_bits.exponent = num1.f_bits.exponent;
+
+    // Actually add the mantissa's here
+    float_sum.f_bits.mantissa = num1.f_bits.mantissa + num2.f_bits.mantissa;
+    float_sum.f_bits.mantissa >>= 1;    // Right shift to fix 1.0 + 1.2
+    float_sum.bit.b22 = 1;              // Put the hidden bit back in
+  }
+  else {
+    // Slam the hidden bit into the mantissa.
+    num2.f_bits.mantissa  >>= 1;
+    num2.bit.b22 = 1;               // Put the hidden bit back in
+
+    // Get the amount to shift by.
+    // Decrement it by one since we will check for dropped bits at the end.
+    count = num1.f_bits.exponent - num2.f_bits.exponent;
+    count--;
+
+    if (count > 24) {     // can not shift beyond 24
+      count = 24;         
+    }
+
+    // Shift 1 less than necessary to check for dropped bits
+    num2.f_bits.mantissa  >>= count - 1;
+
+    if (num2.bit.b0 == 1) {           // Don't drop the bit
+      num2.f_bits.mantissa += 1;      // Add the dropped 1 back in.
+    }
+    else {     // Last bit is 0 just drop it
+      num2.f_bits.mantissa >>= 1;
+    }
+
+    // Store calculated exponent / mantissa.
+    float_sum.f_bits.exponent = num1.f_bits.exponent;
+    float_sum.f_bits.mantissa = num1.f_bits.mantissa + num2.f_bits.mantissa;
+  }
+
+  // Check for infinity
+  if (num1.f_bits.exponent == 254 || num2.f_bits.exponent == 254) {
+    float_sum.f_bits.exponent = 255;
+    float_sum.f_bits.mantissa = 0;
+  }
+
+  return float_sum.float_value;
+}
