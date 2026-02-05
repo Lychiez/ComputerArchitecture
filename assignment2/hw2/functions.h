@@ -5,11 +5,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// Helper functions provided courtesy of Professor Moloney
-union float_32 {
-	float   floating_value_in_32_bits;
-	int     floating_value_as_int;
-	struct  sign_exp_mantissa {
+// Helper code provided courtesy of Professor Moloney
+typedef union float_32 {
+	float	float_value;
+	struct {
 	unsigned  mantissa: 23;
 	unsigned  exponent:  8;
 	unsigned      sign:  1;
@@ -49,15 +48,13 @@ struct single_bits {
 	unsigned  b30:1;
 	unsigned  b31:1;
 } bit;
-};
+}float_32;
 
-// Declared extern union due to Makefiles global declaration confusion
-extern union float_32 float_32;
 
-void print_output(char bit_string[]); 	// Prints out the main terminal boilerplate formatted correctly as per PDF
-
-void print_mant(char bit_string[]);		// Prints Mantissa portion
-
-void print_exp(char bit_string[]);		// Prints Exponent portion
+// Functions to output
+void print_binary(float_32 output);
+float add_floating_point(float_32 first_int, float_32 second_int);
+void print_output_emulated(float_32 output);
+void print_output_hardware(float_32 output);
 
 #endif
