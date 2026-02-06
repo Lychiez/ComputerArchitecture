@@ -77,7 +77,7 @@ float sum_floats(float_32 num1, float_32 num2) {
 
     // Actually add the mantissa's here
     float_sum.f_bits.mantissa = num1.f_bits.mantissa + num2.f_bits.mantissa;
-    float_sum.f_bits.mantissa >>= 1;    // Right shift to fix 1.0 + 1.2
+    float_sum.f_bits.mantissa >>= 1;
     float_sum.bit.b22 = 1;              // Put the hidden bit back in
   }
   else {
@@ -85,7 +85,7 @@ float sum_floats(float_32 num1, float_32 num2) {
     num2.f_bits.mantissa  >>= 1;
     num2.bit.b22 = 1;               // Put the hidden bit back in
 
-    // Get the amount to shift by.
+    // Get amount to shift by
     // Decrement it by one since we will check for dropped bits at the end.
     count = num1.f_bits.exponent - num2.f_bits.exponent;
     count--;

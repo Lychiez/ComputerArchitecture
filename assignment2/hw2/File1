@@ -1,0 +1,20 @@
+I believe that the degree of success with my project is 100%.
+There weren't any problems I was not able to resolve for the
+project based off my test cases and the provided ones. 
+My approach to the project started off with creating the
+boilerplate print out text. I then began to flesh out each
+portion of the functions required to print out what was required.
+I knew the meat of the operation was actually accounting for
+the actual addition of the two floats so I've saved that function
+for last. I created a typedef of float_32 to store given floats
+into float_1 and float_2 where the underscore represented the change
+into the union float_32 defined version for manipulation via 
+printing out, or addition when necessary. The only two functions
+I created were print_binary and sum_floats because and a lot of
+the code was provided in assignment 1 and just required some 
+adjustments to be used in assignment 2 for the binary portion.
+As for the sum_floats portion, I followed the process on the pdf
+document provided to go through the steps of code necessary.
+
+email address: Alex_Ly@student.uml.edu
+
