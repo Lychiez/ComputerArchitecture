@@ -5,7 +5,9 @@ based on the given C code for the iterative and recursive function.
 I then went ahead and started parsing the ifib.asm starter code to see
 what I could use from it to build what I needed following the provided
 logic in the "A3_Part_Rec_Fib.pdf". With this I was able to set myself
-up to the difficult portion of the assignment.
+up to the difficult portion of the assignment. I then began to parse the
+table provided in "Mic1_Help_basics.pdf" for the syntax in what I need to
+do to get the desired recursive implementation.
 
 
 
