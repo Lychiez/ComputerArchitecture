@@ -1,4 +1,4 @@
-
+// Recursive fib
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,7 +14,7 @@ int main(void)
     for (i = 0; i < ndata; ++i)
     {
         printf("\ncalling fib with %d\n", data[i]);
-        results[i] = ifib(data[i]);
+        results[i] = rfib(data[i]);
         printf(" called fib with %d, result is %d\n", data[i], results[i]);
     }
 
@@ -27,10 +27,10 @@ int main(void)
     return 0;
 }
 
-int ifib(int arg)
+int rfib(int arg)
 {
 
-    int fm1, fm2, tmp, lpcnt;
+    int fn1, fn2;
 
     if (arg == 0)
         return 0;
@@ -38,16 +38,7 @@ int ifib(int arg)
     if (arg == 1)
         return 1;
 
-    fm1 = 1;
-    fm2 = 0;
-    tmp = 0;
-
-    for (lpcnt = (arg - 1); lpcnt > 0; --lpcnt)
-    {
-        tmp = fm1 + fm2;
-        fm2 = fm1;
-        fm1 = tmp;
-    }
-
-    return (tmp);
+    fn1 = rfib(arg - 1);
+    fn2 = rfib(arg - 2);
+    return (fn1 + fn2);
 }

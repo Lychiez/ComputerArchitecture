@@ -1,0 +1,13 @@
+I believe the degree of success with the project is 100%.
+My approach is to, after copying over the required files, was
+to familiarize with fibbonacci program and its requirements 
+based on the given C code for the iterative and recursive function.
+I then went ahead and started parsing the ifib.asm starter code to see
+what I could use from it to build what I needed following the provided
+logic in the "A3_Part_Rec_Fib.pdf". With this I was able to set myself
+up to the difficult portion of the assignment.
+
+
+
+
+Email: Alex_Ly@student.uml.edu
