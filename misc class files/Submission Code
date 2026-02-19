@@ -1,0 +1,5 @@
+FORMAT FOR SUBMITTING HOMEWORK 
+ 
+submit nvakil cs305_202_hw1 <student_directory>
+                          ^         ^
+              Change Number         use PWD to get working directory
