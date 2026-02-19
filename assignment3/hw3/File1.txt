@@ -7,9 +7,16 @@ what I could use from it to build what I needed following the provided
 logic in the "A3_Part_Rec_Fib.pdf". With this I was able to set myself
 up to the difficult portion of the assignment. I then began to parse the
 table provided in "Mic1_Help_basics.pdf" for the syntax in what I need to
-do to get the desired recursive implementation.
+do to get the desired recursive implementation and match the sample output
+provided in the pdf for the assignment.
 
-
+It is important to note that the mic1 emulator is simulating a 
+16 bit processor, and therefore when displaying values larger 
+than signed 16 bits (such as anything between −32,768 to +32,767) the
+value would wrap around and be modulo'd with 2^16.
+In the case of the fibonacci of 25 in the assignment, the processor
+displays a value that has been wrapped around twice since the number was
+supposed to be 75,025 but is now only 9,489.
 
 
 Email: Alex_Ly@student.uml.edu
