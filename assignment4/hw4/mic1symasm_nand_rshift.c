@@ -42,8 +42,9 @@
 #define         LABEL     27
 #define         LOC       28
 #define         STR       29
-#define         NAND	  30
-#define         RSHIFT	  31
+#define 		MULT 	  30
+#define 		RSHIFT    31
+#define 		DIV 	  32
 
 // global strings used with the similarly named 
 // functions below (i.e. cstr_6 is set by str_6()
@@ -326,24 +327,32 @@ int  main(int argc, char *argv[])
                    fprintf(p1,"%d  11111110%s\n",  pc, cstr_8);
                    break;
 
-          case HALT: fprintf(p1,"%d  1111111111000000\n",pc);
-                   break;
+		  case HALT:
+			  fprintf(p1, "%d  1111111111000000\n", pc);
+			  break;
+		  case MULT:
+			  if ((tok = yylex()) != INTEG)
+			  {
+				  fprintf(stderr, "Bad operand after MULT is %s\n", yytext);
+				  exit(1);
+			  }
+			  str_6(yytext);
+			  fprintf(p1, "%d  1111111100%s\n", pc, cstr_6);
+			  break;
+		  case RSHIFT:
+			  if ((tok = yylex()) != INTEG)
+			  {
+				  fprintf(stderr, "Bad operand after RSHIFT is %s\n", yytext);
+				  exit(1);
+			  }
+			  str_6(yytext);
+			  fprintf(p1, "%d  1111111101%s\n", pc, cstr_6);
+			  break;
+		  case DIV:
+			  fprintf(p1, "%d  1111111110000000\n", pc);
+			  break;
 
-          case NAND: fprintf(p1,"%d  1111111100000000\n",pc);
-                   break;
-
-          case RSHIFT: if((tok=yylex()) != INTEG){
-                       fprintf(stderr,"Bad operand after RSHIFT is %s\n",yytext);
-                       exit(1);
-                   }
-                   str_6(yytext);
-                   fprintf(p1,"%d  1111111101%s\n",  pc, cstr_6);
-                   break;
-
-
-
-
-          case INTEG:  str_16(yytext);
+		  case INTEG:  str_16(yytext);
 		    fprintf(p1,"%d  %s\n", pc, cstr_16);
                     break;
 

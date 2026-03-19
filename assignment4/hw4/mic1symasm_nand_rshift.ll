@@ -26,12 +26,12 @@
 #define         HALT      24
 #define         INTEG     25
 #define         JUNK      26
-#define		LABEL 	  27
-#define		LOC	  28
-#define		STR	  29
-#define		MULT  30
-#define		RSHIFT 31
-#define		DIV	   32
+#define			LABEL 	  27
+#define			LOC	  	  28
+#define			STR		  29
+#define			MULT	  30
+#define			RSHIFT	  31
+#define			DIV		  32
 %}
 
 %%
