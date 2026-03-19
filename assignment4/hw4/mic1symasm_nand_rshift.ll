@@ -29,8 +29,9 @@
 #define		LABEL 	  27
 #define		LOC	  28
 #define		STR	  29
-#define		NAND	  30
-#define		RSHIFT	  31
+#define		MULT  30
+#define		RSHIFT 31
+#define		DIV	   32
 %}
 
 %%
@@ -83,9 +84,11 @@
 
 [Hh][Aa][Ll][Tt]                       return(HALT);
 
-[Nn][Aa][Nn][Dd]                       return(NAND);
+[Mm][Uu][Ll][Tt]                       return(MULT);
 
 [Rr][Ss][Hh][Ii][Ff][Tt]               return(RSHIFT);
+
+[Dd][Ii][Vv]						   return(DIV);
 
 \".+\"				       return(STR);
 
