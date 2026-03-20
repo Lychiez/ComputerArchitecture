@@ -1,0 +1,16 @@
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./mcc microcode_nand_rshift.mc > new_prom.dat
+Microcode Compiler - Version 1.0 - Richard Boccuzzi
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ make
+gcc -c -g mic1symasm_nand_rshift.c
+flex mic1symasm_nand_rshift.ll
+gcc -c -g lex.yy.c
+gcc -o masm_nr mic1symasm_nand_rshift.o lex.yy.o
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./masm_nr < a4_mult_test.asm > mult.obj
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./masm_nr < a4_rshift_test.asm > rshift.obj
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./masm_nr < a4_div_test.asm > div.obj
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./mic1 new_prom.dat rshift.obj 0 2048
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./mic1 new_prom.dat mult.obj 0 2048
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment4/hw4$ ./mic1 new_prom.dat div.obj 0 2048
