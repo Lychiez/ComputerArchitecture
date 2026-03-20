@@ -1,0 +1,23 @@
+I believe the degree of success with my project is 100%.
+My approach was to follow what the "Assignment_4.pdf" 
+document given to me says exactly.
+Changing the .ll file to contain the #defines and adding
+the necessary lines of translation code.
+Then in the mic1symasm_nand_rshift.c file updating the
+pound defines in there and using the provided fprintf statements
+within the pdf to add the visual functionality of the DIV and MULT
+test to a file for testing with the sample test asm files.
+
+I then went to the microcode and began to locate at which portion
+should the code change specifically where HALT began to be defined
+since we are using the code 1111 1111 11 specifically for it.
+
+I then whitespaced apart the microcode to segregate what I needed to
+work with to build said functionality of MULT and DIV.
+Keeping in mind of existing jumps to relink them later by first marking them.
+
+Then the actual difficult part of building MULT and DIV and testing MULT, DIV, and RSHIFT
+with the provided .asm files.
+
+Email: alex_ly@student.uml.edu
+
