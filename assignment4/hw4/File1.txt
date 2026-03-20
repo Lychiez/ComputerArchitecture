@@ -16,8 +16,8 @@ I then whitespaced apart the microcode to segregate what I needed to
 work with to build said functionality of MULT and DIV.
 Keeping in mind of existing jumps to relink them later by first marking them.
 
-Then the actual difficult part of building MULT and DIV and testing MULT, DIV, and RSHIFT
-with the provided .asm files.
+Then the actual difficult part of building MULT and DIV using the pdf
+as a guide and testing MULT, DIV, and RSHIFT with the provided .asm files.
 
 Email: alex_ly@student.uml.edu
 

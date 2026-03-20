@@ -79,27 +79,77 @@
 78:a := inv(a); 				
 79:a := a + 1; goto 75;
 
-; BEGINNING OF MICROCODE CHANGES POST HALT
+; BEGINNING OF MICROCODE CHANGES BEFORE HALT DEFINED
 
-80:tir := tir + tir; if n then goto 97XXX;		{ 1111 1111 1x = HALT }
-81:alu := tir + tir; if n then goto 89XXX;         { 1111 1111 01 = RSHIFT }
-
-
-82:mar := sp; a := sp + 1; rd;			{ 1111 1111 00 = MULT }
-83:rd;
-84:mar := a; b := mbr; rd;
-85:rd;
-86:c := mbr;
-87:a := band(b, c);
-88:ac := inv(a); goto 0;
+80:tir := tir + tir; if n then goto 110;		   { 1111 1111 11 = HALT }
+81:alu := tir + tir; if n then goto 102;         { 1111 1111 01 = RSHIFT }
 
 
-89:a := lshift(1);				{ 1111 1111 01 = RSHIFT }
-90:a := lshift(a + 1);
-91:a := lshift(a + 1);
-92:a := a + 1;
-93:b := band(ir, a);
-94:b := b + (-1); if n then goto 96XXX;
-95:ac := rshift(ac); goto 94XXX;
-96:goto 0;
-97:rd; wr; 					{ 1111 1111 1x = HALT }
+82:mar := sp; b := ir; rd;			        { 1111 1111 00 = MULT }
+83:c := lshift(1 + 1); rd;                  { last six bits of b: multiplier  }
+84:c := c + 1                               { c: counter for shifts }
+85:d := 0;                                  { d: result }
+86:a := mbr; if n then goto 93;             { a: mutiplicant }
+87:alu := band(b, 1); if z then goto 89;
+88:d := d + a; if n then goto 99;
+89:a := lshift(a);
+90:b := rshift(b);
+91:c := c + (-1); if n then goto 100;
+92:goto 87
+93:alu := band(b, 1); if z then goto 96;
+94:d := d + a; if n then goto 96;
+95:goto 99;
+96:c := c + (-1); if n then goto 100;
+97:b := rshift(b);
+98:a := a + a; goto 93;
+99:ac := -1; goto 0;
+100:ac := 0; mar := sp;
+101:mbr := d; wr; goto 10;
+
+
+102:a := lshift(1);				{ 1111 1111 01 = RSHIFT }
+103:a := lshift(a + 1);
+104:a := lshift(a + 1);
+105:a := a + 1;
+106:b := band(ir, a);
+107:b := b + (-1); if n then goto 109;
+108:ac := rshift(ac); goto 107;
+109:goto 0;
+110:alu := tir + tir; if n then goto 143; 
+
+
+111:mar := sp; c := sp + 1; rd;              { 1111 1111 10 = DIV }
+112:d := 0; rd;                              { d: control flag }
+113:a := mbr; mar := c; rd;                  { a: dividend }
+114:c := 0; rd;                              { c: quotient }
+115:b := mbr; if z then goto 136;            { b: divisor }
+116:e := mbr; if n then goto 119;            { e: copy of divisor }
+117:b := inv(b);
+118:b := b + 1; goto 120;
+119:d := d + 1;                              { d = 1: negate quotient, -1 }    
+120:alu := a; if n then goto 123;
+121:c := c + 1;
+122:a := a + b; if n then goto 127;
+123:goto 121;
+124:a := inv(a);
+125:a := a + 1;
+126:d := d + (-1); goto 121;                 { d = -1: negate quotient }
+127:alu := d; if n then goto 131;
+128:a := a + e;                              { add the last divisor back }
+129:c := c + (-1);
+130:alu := d; if z then goto 138;;       
+131:c := inv(c);
+132:c := c + 1;
+133:alu := inv(d); if n then goto 138; 
+134:a := inv(a);
+135:a := a + 1; goto 138;
+136:a := -1;                                 { divide by 0 }
+137:ac := -1; goto 139;
+138:ac := 0;                                 { success }
+139:sp := sp + (-1);                         { store results }
+140:mbr := a; mar := sp; wr;
+141:sp := sp + (-1); wr;
+142:mbr := c; mar := sp; wr; goto 10;
+
+
+143:rd; wr; 					{ 1111 1111 11 = HALT }
