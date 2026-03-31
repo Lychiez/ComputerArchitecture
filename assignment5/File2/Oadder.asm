@@ -1,8 +1,8 @@
 ; Main
 MainInput:
 ; Set Accumulator to 0 and store into sum
-    loco 0:
-    stod sum
+    loco 0
+    stod sum:
 ; Start value of 8 to turn on transmitter
     lodd on:
     stod 4095
@@ -14,7 +14,7 @@ MainInput:
     lodd binarynum:
     stod sum:
 ; Input Second Number
-    loco rangestr:
+    loco rangeStr:
     call nextw:
     call getInput:
     lodd binarynum:
@@ -41,10 +41,10 @@ getInput:
 ; Get Digits function
 getDigit: 
     call rbsywt:
-    lodd 4092:
+    lodd 4092
     stod nextChar:
     subd nl:
-    jzer lasNum:
+    jzer lastNum:
     mult 10
     lodd nextChar:
     subd ascii:
@@ -61,6 +61,7 @@ lastNum:
     retn
 
 ; Overflow function
+OverFlow:
     loco errorStr:
     call nextw:
     lodd Cneg1:
@@ -71,7 +72,9 @@ convert:
     lodd on:
     stod 4095
     lodd Cneg1:
-    pushlodd mask: push
+    push
+    lodd mask:
+    push
     jump answer:
 
 ; answer loop
@@ -92,6 +95,7 @@ answer:
     jump answer:
 
 ; print answer function
+printAns:
     pop
     jneg done:
     stod 4094
@@ -103,7 +107,8 @@ nextw:
     pshi
     addd one:
     stod str:
-    popjzer crnl:
+    pop
+    jzer crnl:
     stod 4094
     push
     subd C255:
@@ -123,9 +128,9 @@ crnl:
     lodd cr:
     stod 4094
     call xbsywt:
-    lodd n1:
+    lodd nl:
     stod 4094
-    call xbsywt
+    call xbsywt:
     retn
 
 ; Transmitter and receiver functions for IO

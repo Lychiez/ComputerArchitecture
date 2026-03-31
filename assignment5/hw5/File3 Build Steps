@@ -1,0 +1,11 @@
+First you have to use the new masm_mrd we created to make
+the object file for the assembly code (.asm) to create
+the object file (.obj):
+
+./masm_mrd < Oadder.asm > o.obj
+
+Then you have to run the generated .obj file along with the
+prom.dat file created previously (or supplied)
+
+./mic1 prom_mrd.dat o.obj 0 2048
+
