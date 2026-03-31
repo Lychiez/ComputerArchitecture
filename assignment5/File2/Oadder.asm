@@ -61,7 +61,7 @@ lastNum:    pop
 OverFlow:   loco errorStr:
             call nextw:
             lodd neg1:
-            halt
+            jump printAns:
 
 ; Convert function
 convert:    lodd on:
@@ -161,23 +161,17 @@ finish:     lodl 1
             retn
 
 done:       
+            pop
+            halt
             retn
 
-
 ; Variables
-
-
-; NOTE:
-; 4092 = input buffer
-; 4093 = receiver address
-; 4094 = output buffer
-; 4095 = transmitter address
 
 rangeStr:   "Enter an integer between 1 and 32767: "
 sumStr:     "The sum of these numbers is:"
 errorStr:   "Overflow, no sum possible!"
-neg1:      -1      ;; constant -1
-zero:      0       ;; constant  0
+neg1:      -1       ;; constant -1
+zero:       0       ;; constant  0
 one:        1       ;; constant  1
 ascii:      48      ;; constant 48 (ASCII value for 0)
 c255:       255     ;; constant 255
