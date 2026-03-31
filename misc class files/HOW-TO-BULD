@@ -1,0 +1,10 @@
+masm is a compilter that compiles .asm files into object files
+sample:
+./masm < something.asm > something.obj
+
+Mic1 is a cpu emulator (much like an IDE) that will take your object file and given prom.dat file
+and output data to stdout being the terminal by default.
+sample:
+./mic1 prom.dat something.obj 0 2048
+
+being the promfile, an object, starting line, and ending line?
