@@ -25,9 +25,6 @@ MainInput:  lodd on:
             loco sumStr:
             call nextw:
             call convert:
-            lodd zero:
-
-            halt
 
 ; Get Input function
 getInput:   lodd on:
@@ -162,8 +159,14 @@ finish:     lodl 1
 
 done:       
             pop
+            jneg oFlowDone:
+            lodd zero:
             halt
             retn
+
+oFlowDone:  halt
+            retn
+
 
 ; Variables
 
