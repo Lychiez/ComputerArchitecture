@@ -1,5 +1,5 @@
 ; Main
-MainInput:  lodd on:
+AddInput:  lodd on:
             stod 4095
             call xbsywt:
 

@@ -1,12 +1,14 @@
 I believe the degree of success with this assignment is 100%.
 I first started out copying the necessary files over for the assignment consisting
 of masm_mrd, adder.asm file, prom_mrd.dat, IO_scan_two_numbers.asm, and the IO_str_and_echo.asm 
-for some starter code to parse through for use in the assignment and for use.
-I then looked at the adder.pdf file given for example flow to see if I can parse through the 
+for some starter code to parse through for use in the assignment.
+I then looked at the adder_example.pdf file given for example flow to see if I can parse through the 
 adding operations per page and emulate it. 
 I ran into an issue where
 using capitals in the strings caused my program to fail several times so I swapped it to lowercase 
-letters, but still unsure how that affects anything.
+letters, but still unsure how that affects anything, but the prompt string is the same.
+
+email: Alex_Ly@student.uml.edu
 
 
 

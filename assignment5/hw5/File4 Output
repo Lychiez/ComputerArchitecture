@@ -1,1 +1,132 @@
+# NOTE DIRECTORY FILE PATH MAY NOT WORK ANYMORE AS I'VE MOVED THINGS AROUND FOR SUBMISSION
 
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment5/File2$ ./masm_mrd < Oadder.asm > o.obj
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment5/File2$ ./mic1 prom_mrd.dat o.obj 0 2048
+
+Read in 152 micro instructions
+Read in 190 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+Enter an integer between 1 and 32767: 
+235
+Enter an integer between 1 and 32767: 
+0
+The sum of these numbers is:
+235
+
+ProgramCounter : 0000000001111100  base 10:     124
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000010  base 10:       2
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 4823921
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000001111100
+
+Enter an integer between 1 and 32767: 
+16341
+Enter an integer between 1 and 32767: 
+957
+The sum of these numbers is:
+17298
+
+ProgramCounter : 0000000001111100  base 10:     124
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000100000000001  base 10:    2049
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 7383534
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000001111100
+
+Enter an integer between 1 and 32767: 
+23786
+Enter an integer between 1 and 32767: 
+12400
+Overflow, no sum possible!
+
+ProgramCounter : 0000000001111110  base 10:     126
+Accumulator    : 1111111111111111  base 10:   65535
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000100000000100  base 10:    2052
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0011000001110000  base 10:   12400
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 9533398
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000001111110
+
+Enter an integer between 1 and 32767: 
+12
+Enter an integer between 1 and 32767: 
+23
+The sum of these numbers is:
+35
+
+ProgramCounter : 0000000001111100  base 10:     124
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000100000000101  base 10:    2053
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000011  base 10:       3
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 10968954
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000001111100
+
+Enter an integer between 1 and 32767: 
+1
+Enter an integer between 1 and 32767: 
+1343
+The sum of these numbers is:
+1344
+
+ProgramCounter : 0000000001111100  base 10:     124
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000100000000110  base 10:    2054
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 12593719
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
