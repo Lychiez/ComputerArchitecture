@@ -1,0 +1,16 @@
+
+main driver:    a6main.asm
+
+functions       function file:
+
+rbsywt          rbsywt.asm
+xbsywt          xbsywt.asm
+writestr        writestr.asm
+readint         readint.asm
+addints         addints.asm
+writeint        writeint.asm
+sb              sb.asm
+
+data elements:  data.asm
+
+Nine total .asm files in the build
