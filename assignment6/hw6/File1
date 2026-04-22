@@ -1,0 +1,11 @@
+I believe the degree of success with the project is 100%.
+The approach I had for the project was to read through the
+"Assignment_6.pdf" document first to ascertain what
+was necessary for a successful project and created skeletons for each of my submission items if possible, in Layman's terms, the
+best way I can describe what I think is happening is we break apart a working single 
+working implementation of a previous assignment's code (Assignment 5) into their own seperate 
+files and try to link them together to create
+the expected output we have created earlier
+but while following the convention of
+modern day compilers like gcc.
+
