@@ -1,5 +1,7 @@
-a6.exe: a6main.o addints.o data.o rbsywt.o readint.o sb.o writeint.o writestr.o xbsywt.o
+a6.exe: linker a6main.o addints.o data.o rbsywt.o readint.o sb.o writeint.o writestr.o xbsywt.o
 	./linker a6main.o writestr.o readint.o addints.o writeint.o sb.o rbsywt.o xbsywt.o data.o > a6.exe
+linker: linker.c
+	gcc linker.c -o linker
 a6.o:   a6main.o addints.o data.o rbsywt.o readint.o sb.o writeint.o writestr.o xbsywt.o
 	./linker -o a6main.o writestr.o readint.o addints.o writeint.o sb.o rbsywt.o xbsywt.o data.o > a6.o
 a6main.o: a6main.asm
@@ -21,4 +23,4 @@ xbsywt.o: xbsywt.asm
 data.o: data.asm
 	./masm_mrd -o < data.asm > data.o
 clean:
-	rm -f *.o a6.exe
+	rm -f *.o a6.exe linker

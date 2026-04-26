@@ -1,20 +1,21 @@
-start:  lodd on:
-        stod 4095
-        stod 4093
-        call xbsywt:
-	loco str1:
+start:  
+	lodd on:
+	stod 4095
+	stod 4093
+	call xbsywt:
+	loco prompt:
 	push
 	call writestr:
 	insp 1
 	call readint:
 	stod binum1:
 	call xbsywt:
-        loco str1:
-        push
-        call writestr:
+	loco prompt:
+	push
+	call writestr:
 	insp 1
-        call readint:
-        stod binum2:
+	call readint:
+	stod binum2:
 	lodd binum1:
 	push
 	lodd binum2:
@@ -24,15 +25,16 @@ start:  lodd on:
 	stod sum:
 	jpos prtsum:
 	call xbsywt:
-        loco str3:
-        push
-        call writestr:
+	loco ofstr:
+	push
+	call writestr:
 	insp 1
 	halt
-prtsum: call xbsywt:
-        loco str2:
-        push
-        call writestr:
+prtsum: 
+	call xbsywt:
+	loco sumstr:
+	push
+	call writestr:
 	insp 1
 	lodd sum:
 	push

@@ -1,21 +1,21 @@
 readint:
-call rbsywt
+call rbsywt:
 lodd 4092
-subd numoff
+subd numoff:
 push
 
 nxtdig:
-call rbsywt
+call rbsywt:
 lodd 4092
-stod nxtchr
-subd nl
-jzer endnum
+stod nxtchr:
+subd nl:
+jzer endnum:
 mult 10
-lodd nxtchr
-subd numoff
+lodd nxtchr:
+subd numoff:
 addl 0
 stol 0
-jump nxtdig
+jump nxtdig:
 
 endnum:
 pop

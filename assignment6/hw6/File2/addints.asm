@@ -1,12 +1,12 @@
 addints:
-    lodd num1
+    lodd num1:
     push
-    lodd num2
+    lodd num2:
     addl 0
-    jneg overflow
+    jneg overflow:
     pop
     retn
 overflow:
     pop
-    lodd cn1
+    lodd cn1:
     retn

@@ -20,8 +20,8 @@ typedef struct nament{
 
 void  add_symbol(char * symbol, int line_number);
 int   get_sym_val(char *symbol);
-void  generate_code(int);
-void  print_first_pass(int);
+void  generate_code(int linum);
+void  print_first_pass(int headers);
 void  append_table(void);
 void  dump_table(void);
 
@@ -168,7 +168,7 @@ int   get_sym_val(char *symbol)
     }
     return -1;
 }
-void  generate_code(int)
+void  generate_code(int linum)
 {
     	char linbuf[10];
 	char instruction[18];
@@ -218,7 +218,7 @@ void  generate_code(int)
 	}
 	fclose(p1);
 }
-void  print_first_pass(int)
+void  print_first_pass(int headers)
 {
     char inbuf[81];
 
