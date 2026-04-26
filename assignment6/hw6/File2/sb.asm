@@ -1,0 +1,1 @@
+sb:     loco 8			; load 8 (8 bits = 1 byte)

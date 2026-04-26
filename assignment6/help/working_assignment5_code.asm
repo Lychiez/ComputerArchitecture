@@ -171,8 +171,8 @@ donep:  lodd cr:		; print carriage return
 	retn
 xbsywt: lodd 4095		; wait until transmitter
         subd mask:		; not busy
-        jneg xbsywt:
-        retn
+                jneg xbsywt:
+                        retn
 rbsywt: lodd 4093		; wait until receiver
         subd mask:		; not busy
         jneg rbsywt:
