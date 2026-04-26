@@ -1,4 +1,8 @@
 To create the objects from the asm and link them together use:
 make
+
+To clean all the files up use:
+make clean
+
 To run the program with generated .o file use:
 ./mic1 prom_mrd.dat a6.o 0 2048

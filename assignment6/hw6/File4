@@ -1,0 +1,25 @@
+################################# Creating the objects with the Makefile and linking them
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment6/hw6/File2$ make
+gcc linker.c -o linker
+./masm_mrd -o < a6main.asm > a6main.o
+./masm_mrd -o < addints.asm > addints.o
+./masm_mrd -o < data.asm > data.o
+./masm_mrd -o < rbsywt.asm > rbsywt.o
+./masm_mrd -o < readint.asm > readint.o
+./masm_mrd -o < sb.asm > sb.o
+./masm_mrd -o < writeint.asm > writeint.o
+./masm_mrd -o < writestr.asm > writestr.o
+./masm_mrd -o < xbsywt.asm > xbsywt.o
+./linker a6main.o writestr.o readint.o addints.o writeint.o sb.o rbsywt.o xbsywt.o data.o > a6.exe
+./linker -o a6main.o writestr.o readint.o addints.o writeint.o sb.o rbsywt.o xbsywt.o data.o > a6.o
+
+
+################################# Running the object file with the Mic1 Emulator for output (if it were to work correctly)
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment6/hw6/File2$ ./mic1 prom_mrd.dat a6.o 0 2048
+
+Read in 152 micro instructions
+Read in 677 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048

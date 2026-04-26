@@ -6,7 +6,9 @@ best way I can describe what I think is happening is we break apart a working si
 working implementation of a previous assignment's code (Assignment 5) into their own seperate 
 files and try to link them together to create
 the expected functionality we have tested earlier.
-I believe I edited the edited the linker, the Makefile and the a few of the .asm files correctly, 5 of which were practically given, which were sb.asm, a6main.asm, rbsywt.asm, xbsywt.asm, data.asm, I believe my issues lie within the readint, writeint asm files, that I ran out of time to debug and find out the root cause.
+I believe I edited the edited the linker, the Makefile and a few of the .asm files correctly, 5 of which were practically given, which were sb.asm, a6main.asm, rbsywt.asm, xbsywt.asm, data.asm, I believe my issues lie within the readint, and writeint asm files, that I ran out of time to debug and find out the root cause, most likely stack corruption or incorrect process, at least there weren't any issues with building and linking the project together.
+
+Email: Alex_Ly@student.uml.edu
 
 
 
