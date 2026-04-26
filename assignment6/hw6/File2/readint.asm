@@ -14,7 +14,6 @@ mult 10
 lodd nxtchr:
 subd numoff:
 addl 0
-stol 0
 jump nxtdig:
 
 endnum:

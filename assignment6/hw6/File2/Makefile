@@ -1,3 +1,4 @@
+all: linker a6.exe a6.o
 a6.exe: linker a6main.o addints.o data.o rbsywt.o readint.o sb.o writeint.o writestr.o xbsywt.o
 	./linker a6main.o writestr.o readint.o addints.o writeint.o sb.o rbsywt.o xbsywt.o data.o > a6.exe
 linker: linker.c
