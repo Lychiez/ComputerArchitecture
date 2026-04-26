@@ -1,4 +1,4 @@
-bgndig:
+readint:
 call rbsywt
 lodd 4092
 subd numoff
