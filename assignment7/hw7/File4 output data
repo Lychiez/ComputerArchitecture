@@ -1,0 +1,46 @@
+
+// Created the program using Makefile
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment7/hw7$ make
+gcc assn7.c -o assn7
+
+
+// Actual run of the program
+
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment7/hw7$ ./assn7 
+
+This is the Parent process report:
+
+PARENT PROG:  Process ID is:            92852
+PARENT PROC:  Process parent ID is:     70853
+PARENT PROC:  Real UID is:              1739
+PARENT PROC:  Real GID is:              2025
+PARENT PROC:  Effective UID is:         1739
+PARENT PROC:  Effective GID is:         2025
+PARENT PROC:  Process priority is:      0
+
+PARENT PROC: will now create child, write pipe,
+ and do a normal termination
+
+PARENT PROG: created Child with PID 92853                       // Theoretically and Process wise this is in the correct spot but I am unsure why your helpfile has it underneath in the
+                                                                // Child process right after the Child is about to read the pipe and report the message on line 38 for me and line 124
+This is the Child process report:                               // in the helpfile.
+
+CHILD PROG:  Process ID is:             92853
+CHILD PROC:  Process parent ID is:      92852
+CHILD PROC:  Real UID is:               1739
+CHILD PROC:  Real GID is:               2025
+CHILD PROC:  Effective UID is:          1739
+CHILD PROC:  Effective GID is:          2025
+CHILD PROC:  Process priority is:       0
+
+CHILD PROC: about to read pipe and report parent message:
+
+CHILD PROC: parent's msg is
+        This is the pipe message from the parent with PID 92852
+
+aly@mercury2:~/Spring2026/CompArch/ComputerArchitecture/assignment7/hw7$ CHILD PROC: Process parent ID now is:   1
+CHILD PROC: ### Goodbye ###
+
+

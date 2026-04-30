@@ -35,25 +35,22 @@ int main(void)
     egid = getegid();
     priority = getpriority(PRIO_PROCESS, 0);
 
-        printf("\nPARENT PROG:  Process ID is:\t\t\t\t%d\n\
-              PARENT PROC:  Process parent ID is:\t%d\n\
-              PARENT PROC:  Real UID is:\t\t%d\n\
-              PARENT PROC:  Real GID is:\t\t%d\n\
-              PARENT PROC:  Effective UID is:\t\t%d\n\
-              PARENT PROC:  Effective GID is:\t\t%d\n\
-              PARENT PROC:  Process priority is:\t%d\n",
+        printf("\nPARENT PROG:  Process ID is:\t\t%d\n\
+PARENT PROC:  Process parent ID is:\t%d\n\
+PARENT PROC:  Real UID is:\t\t%d\n\
+PARENT PROC:  Real GID is:\t\t%d\n\
+PARENT PROC:  Effective UID is:\t\t%d\n\
+PARENT PROC:  Effective GID is:\t\t%d\n\
+PARENT PROC:  Process priority is:\t%d\n",
                                         pid, ppid, ruid, rgid, euid, egid, priority);
 
-    printf("\nPARENT PROC: will now create child, write pipe,\n \
-and do a normal termination\n");
+    printf("\nPARENT PROC: will now create child, write pipe,\n and do a normal termination\n");
 
     // #############################################################################################################################
-    printf("\nThis is the Child process report:\n");
-    int my_channel;
+
     // use the sprintf() call to build a message to write into the pipe
-    sprintf( msg_buf, "this is a message from PID %d\n", getpid());
+    sprintf(msg_buf,"This is the pipe message from the parent with PID %d\n", pid);
     // and dont forget to write the message into the pipe before parent exits
-    write(my_channel, msg_buf, strlen(msg_buf));
     // #############################################################################################################################
     // now use the fork() call to create the child:
     // format is:
@@ -61,25 +58,44 @@ and do a normal termination\n");
        case -1: // if the call fails
                 perror("fork failed ");
                 exit(1);
-                  
-       default: // this is the parent's case  
-                // parent must write message to pipe and
-                printf("Created PID %d \n", pid);
-                // do a normal exit
-                exit(0);
 
        case 0:  // this is the child's case
                 // child must create and print report
+                printf("\nThis is the Child process report:\n");
+                pid  = getpid();
+                ppid = getppid();
+                ruid = getuid();
+                euid = geteuid();
+                rgid = getgid();
+                egid = getegid();
+                priority = getpriority(PRIO_PROCESS, 0);
                 // child must read pipe message and print 
                 // a modified version of it to output
                 // child must do a normal exit
-
+        printf("\nCHILD PROG:  Process ID is:\t\t%d\n\
+CHILD PROC:  Process parent ID is:\t%d\n\
+CHILD PROC:  Real UID is:\t\t%d\n\
+CHILD PROC:  Real GID is:\t\t%d\n\
+CHILD PROC:  Effective UID is:\t\t%d\n\
+CHILD PROC:  Effective GID is:\t\t%d\n\
+CHILD PROC:  Process priority is:\t%d\n",
+                                        pid, ppid, ruid, rgid, euid, egid, priority);
+                printf("\nCHILD PROC: about to read pipe and report parent message:\n\n");
                 read(msg_pipe[0], msg_buf, 100);
-                printf("CHILD PROC: parent's msg is %s\n", msg_buf);
+                printf("CHILD PROC: parent's msg is\n\t%s\n", msg_buf);
+                sleep(1);
                 printf("CHILD PROC: Process parent ID now is:   %d\n",
                                                                     getppid());
                 printf("CHILD PROC: ### Goodbye ###\n");
                 exit(0);
+
+        default: // this is the parent's case  
+                // parent must write message to pipe and
+                printf("\nPARENT PROG: created Child with PID %d \n", pid);
+                // do a normal exit
+                break;
         } // switch and child end
+        write(msg_pipe[1], msg_buf, strlen(msg_buf));
+        exit(0);
 }
 // #############################################################################################################################
